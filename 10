@@ -1,0 +1,35 @@
+using System;
+
+namespace IkiliSayiCevirme
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Ikili (Binary) sayı girin: ");
+            string ikiliStr = Console.ReadLine();
+
+            int onluDeger = 0;
+            int tabanDeger = 1;
+
+            for (int i = ikiliStr.Length - 1; i >= 0; i--)
+            {
+                int basamakDeger = Convert.ToInt32(ikiliStr[i].ToString());
+
+                if (basamakDeger != 0 && basamakDeger != 1)
+                {
+                    Console.WriteLine("Geçersiz giriş! Sadece 0 ve 1 içeren bir ikili sayı giriniz.");
+                    return;
+                }
+
+                onluDeger += basamakDeger * tabanDeger;
+                tabanDeger *= 2;
+            }
+
+            Console.WriteLine("Ikili (Binary) Sayı: " + ikiliStr);
+            Console.WriteLine("Onlu (Decimal) Sayı: " + onluDeger);
+
+            Console.ReadLine();
+        }
+    }
+}
