@@ -1,0 +1,32 @@
+using System;
+
+namespace OrnekProgram
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            int sayi, a, e = 1;
+            Console.Write("Kaç adet sayı gireceksiniz? ");
+            int n = int.Parse(Console.ReadLine());
+            int[] B = new int[n];
+
+            Console.WriteLine("Sayıları giriniz:");
+
+            for (a = 0; a < B.Length; a++)
+            {
+                Console.Write("Sayı-{0}: ", a + 1);
+                B[a] = int.Parse(Console.ReadLine());
+            }
+
+            for (a = 2; a < B.Length; a++)
+            {
+                if (Math.Abs(B[0] - B[a]) < Math.Abs(B[0] - B[e])) e = a;
+            }
+
+            Console.WriteLine("İlk Sayıya En Yakın Sayı = " + B[e]);
+            Console.Write("\nPress any key to continue . . . ");
+            Console.ReadKey(true);
+        }
+    }
+}
